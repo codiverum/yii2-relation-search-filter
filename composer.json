@@ -1,0 +1,21 @@
+{
+    "name": "codiverum/yii2-relation-search",
+    "description": "Simple extension for making searching and filtering by related field simple.",
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension"," relation search"," active record"],
+    "license": "BSD-4-Clause",
+    "authors": [
+        {
+            "name": "codiverum",
+            "email": "info@codiverum.com"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "codiverum\\relationSearch\\": ""
+        }
+    }
+}
