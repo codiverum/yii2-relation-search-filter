@@ -23,7 +23,7 @@ use yii\db\QueryInterface;
  * 1. In top of your class body put:
  * 
  * ```
- * use codiverum\RelationSF\RelationSFTrait; 
+ * use codiverum\relationSF\RelationSFTrait; 
  * ```
  * 
  * 2. Make new public attribute in your class:

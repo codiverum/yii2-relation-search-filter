@@ -34,7 +34,7 @@ To use the trait you need to do the following (first example without using alias
 1. In top of your class body put:
 
 ```
-use common\components\RelationSFTrait; 
+use codiverum\relationSF\RelationSFTrait; 
 ```
 
 2. Make new public attribute in your class:
