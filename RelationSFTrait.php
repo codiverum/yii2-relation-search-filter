@@ -64,7 +64,7 @@ use yii\db\QueryInterface;
  *
  * @author Jozek
  */
-trait RelationSearchTrait {
+trait RelationSFTrait {
 
     /**
      * 
