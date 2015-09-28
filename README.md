@@ -31,7 +31,7 @@ Usage
 -----
 
 To use the trait you need to do the following (first example without using aliases):
-1. In top of your class body put:
+1. In top of your class (search-model) body put:
 
 ```
 use codiverum\relationSF\RelationSFTrait; 
