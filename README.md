@@ -73,6 +73,7 @@ $this->addRelationFilter($query, 'relation_name', 'related_table_field_name', 't
 
 That's it.
 
+
 Advanced Usage (with table aliases)
 -----------------------------------
 
