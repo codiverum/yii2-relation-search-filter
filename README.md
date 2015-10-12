@@ -34,7 +34,7 @@ To use the trait you need to do the following (first example without using alias
 1. In top of your class (search-model) body put:
 
 ```
-use codiverum\relationSF\RelationSFTrait; 
+use \codiverum\relationSF\RelationSFTrait; 
 ```
 
 2. Make new public attribute in your class:
@@ -54,13 +54,58 @@ $this->joinWithRelation($query, 'relation_name');
   - after creating $dataProvider add:
 
 ```
-$this->addRelationSort($dataProvider, 'relation_name', 'related_table_field_name');
+$this->addRelationSort($dataProvider, 'relation_name', 'related_table_field_name', 'table_name');
 ```
 
   - after creating query filters add:
 
 ```
-$this->addRelationFilter($query, 'relation_name', 'related_table_field_name');
+$this->addRelationFilter($query, 'relation_name', 'related_table_field_name', 'table_name');
+```
+
+5. Add to GridView columns array:
+
+```
+[
+  'attribute' => 'relation_name',
+  'value' => 'relation_name.related_table_field_name',
+],
+
+That's it.
+
+Advanced Usage (with table aliases)
+-----------------------------------
+
+1. In top of your class (search-model) body put:
+
+```
+use \codiverum\relationSF\RelationSFTrait; 
+```
+
+2. Make new public attribute in your class:
+
+```
+public $relation_name;
+```
+
+3. Add your attribute to safe attributes
+4. In your search function add following:
+  - after creating $query add:
+
+```
+$this->joinWithRelation($query, 'relation_name', 'table_name', 'alias');
+```
+
+  - after creating $dataProvider add:
+
+```
+$this->addRelationSort($dataProvider, 'relation_name', 'related_table_field_name', 'alias');
+```
+
+  - after creating query filters add:
+
+```
+$this->addRelationFilter($query, 'relation_name', 'related_table_field_name', 'alias');
 ```
 
 5. Add to GridView columns array:

@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 
-namespace codiverum\RelationSF;
+namespace codiverum\relationSF;
 
 use yii\data\DataProviderInterface;
 use yii\db\QueryInterface;
@@ -69,26 +69,26 @@ trait RelationSFTrait {
     /**
      * 
      * @param DataProviderInterface $dataProvider
-     * @param string $attribute
-     * @param string $relationFieldName
-     * @param string $tableName defaults to $attribute
+     * @param string $attribute name of defined public property
+     * @param string $fieldName related table's field name
+     * @param string $tableName table name or alias (if defined in `joinWithRelation()` method)
      */
-    public function addRelationSort(&$dataProvider, $attribute, $relationFieldName, $tableName = null) {
+    public function addRelationSort(&$dataProvider, $attribute, $fieldName, $tableName) {
         $dataProvider->sort->attributes[$attribute] = [
-            'asc' => [$this->getRelationSearchTableName($tableName, $attribute) . '.' . $relationFieldName => SORT_ASC],
-            'desc' => [$this->getRelationSearchTableName($tableName, $attribute) . '.' . $relationFieldName => SORT_DESC],
+            'asc' => [$this->getRelationSearchTableName($tableName, $attribute) . '.' . $fieldName => SORT_ASC],
+            'desc' => [$this->getRelationSearchTableName($tableName, $attribute) . '.' . $fieldName => SORT_DESC],
         ];
     }
 
     /**
      * 
      * @param QueryInterface $query
-     * @param string $attribute
-     * @param string $fieldName
-     * @param string $tableName defaults to nullF
+     * @param string $attribute name of defined public property
+     * @param string $fieldName related table's field name
+     * @param string $tableName table name or alias (if defined in `joinWithRelation()` method)
      * @param string $operator defaults to 'like'
      */
-    public function addRelationFilter(&$query, $attribute, $fieldName, $tableName = null, $operator = 'like') {
+    public function addRelationFilter(&$query, $attribute, $fieldName, $tableName, $operator = 'like') {
         $query->andFilterWhere([$operator, $this->getRelationSearchTableName($tableName, $attribute) . '.' . $fieldName, $this->{$attribute}]);
     }
 
@@ -105,8 +105,8 @@ trait RelationSFTrait {
      * 
      * @param QueryInterface $query
      * @param string $relationName
-     * @param string $relationTableName defaults to null
-     * @param string $relationTableAlias defaults to null
+     * @param string $relationTableName defaults to null (use when you create alias)
+     * @param string $relationTableAlias defaults to null (use when you create alias)
      */
     public function joinWithRelation(&$query, $relationName, $relationTableName = null, $relationTableAlias = null) {
         if (empty($relationTableAlias))
