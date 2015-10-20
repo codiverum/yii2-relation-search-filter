@@ -70,6 +70,7 @@ $this->addRelationFilter($query, 'relation_name', 'related_table_field_name', 't
   'attribute' => 'relation_name',
   'value' => 'relation_name.related_table_field_name',
 ],
+```
 
 That's it.
 

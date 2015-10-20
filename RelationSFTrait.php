@@ -23,7 +23,8 @@ use yii\db\QueryInterface;
  * 1. In top of your class body put:
  * 
  * ```
- * use \codiverum\relationSF\RelationSFTrait;
+ * class XxxSearch extends Model {
+ *   use \codiverum\relationSF\RelationSFTrait;
  * ```
  * 
  * 2. Make new public attribute in your class:
